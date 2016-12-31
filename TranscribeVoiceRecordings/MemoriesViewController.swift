@@ -11,14 +11,20 @@ import AVFoundation
 import Speech
 import Photos
 
-class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
+class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, AVAudioRecorderDelegate {
     
     var memories = [URL]()
+    var activeMemory: URL!
+    
+    var audioRecorder: AVAudioRecorder?
+    var recordingURL: URL!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMemories()
         setupNavBar()
+        recordingURL = getDocumentsDirectory().appendingPathExtension("recording.m4a")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,12 +54,27 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Memory", for: indexPath) as! MemoryCell
+        setImage(forCell: cell, at: indexPath)
+        addGestureRecognizer(toCell: cell)
+        
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 3
+        cell.layer.cornerRadius = 10
+        
+        return cell
+    }
+    
+    func setImage(forCell cell: MemoryCell, at indexPath: IndexPath) {
         let memory = memories[indexPath.row]
         let imageName = thumbnailURL(for: memory).path
         let image = UIImage(contentsOfFile: imageName)
         cell.imageView.image = image
-        
-        return cell
+    }
+    
+    func addGestureRecognizer(toCell cell: MemoryCell) {
+        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(memoryLongPress))
+        recognizer.minimumPressDuration = 0.25
+        cell.addGestureRecognizer(recognizer)
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -63,6 +84,77 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return section == 1 ? CGSize.zero : CGSize(width: 0, height: 50)
     }
+    
+    
+    
+    // Memory Recording
+    
+    func memoryLongPress(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let cell = sender.view as! MemoryCell
+            if let index = collectionView?.indexPath(for: cell) {
+                activeMemory = memories[index.row]
+                beginRecording()
+            }
+            
+        } else if sender.state == .ended {
+            finishRecording(sucess: true)
+        }
+    }
+    
+    func beginRecording() {
+        collectionView?.backgroundColor = .red
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            let settings = [ AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                             AVSampleRateKey: 44100,
+                             AVNumberOfChannelsKey: 2,
+                             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+            
+            audioRecorder = try AVAudioRecorder(url: recordingURL, settings: settings)
+            audioRecorder?.delegate = self
+            audioRecorder?.record()
+        } catch let error {
+            print("Failed to record: \(error)")
+            finishRecording(success: false)
+        }
+    }
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if !flag {
+            finishRecording(success: false) //might happen if a phone call interrupts recording
+        }
+    }
+    
+    
+    func finishRecording(success: Bool) {
+        collectionView?.backgroundColor = .darkGray
+        
+        audioRecorder?.stop()
+        guard success else { return }
+        
+        do {
+            let memoryAudioURL = activeMemory.appendingPathExtension("m4a")
+            
+            if FileManager.default.fileExists(atPath: memoryAudioURL.path) {
+                try FileManager.default.removeItem(at: memoryAudioURL)
+            }
+            
+            try FileManager.default.moveItem(at: recordingURL, to: memoryAudioURL)
+            
+            transcribeAudio(memory: activeMemory)
+        } catch let error {
+            print("Failed to complete recording: \(error)")
+        }
+    }
+    
+    func transcribeAudio(memory: URL) {
+        
+    }
+    
     
     
     // Image handling
