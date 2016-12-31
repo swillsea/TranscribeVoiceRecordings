@@ -11,20 +11,61 @@ import AVFoundation
 import Speech
 import Photos
 
-class MemoriesViewController: UICollectionViewController {
+class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var memories = [URL]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMemories()
+        setupNavBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkPermissions()
     }
+    
+    func setupNavBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addImage))
+    }
+    
+    
+    // Image handling
+    func addImage() {
+        let vc = UIImagePickerController()
+        vc.modalPresentationStyle = .formSheet
+        vc.delegate = self
+        navigationController?.present(vc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        dismiss(animated: true)
+        
+        if let possibleImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            saveNewMemory(image: possibleImage)
+            loadMemories()
+        }
+    }
+    
+    
+    // Data source
 
+    func saveNewMemory(image: UIImage) {
+        let memoryName = "memory-\(Date().timeIntervalSince1970)"
+        let imageName = memoryName + ".jpg"
+        let thumbnailName = memoryName + ".thumb"
+        
+        do {
+            let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+            if let jpegData = UIImageJPEGRepresentation(image, 80) {
+                try jpegData.write(to: imagePath, options: [.atomicWrite])
+            }
+        } catch {
+            print("failed to save to disk")
+        }
+    }
+    
     func loadMemories() {
         memories.removeAll()
         
@@ -44,7 +85,7 @@ class MemoriesViewController: UICollectionViewController {
         }
         
         // only reload memories - ignore section[0] (search bar)
-        collectionView?.reloadSections(IndexSet(integer: 1))
+        collectionView?.reloadSections(IndexSet(integer: 0))
     }
 
     func getDocumentsDirectory() -> URL {
@@ -53,6 +94,8 @@ class MemoriesViewController: UICollectionViewController {
         return documentsDirectory
     }
     
+    
+    // Permissions
     func checkPermissions() {
         let photosAuthorized = PHPhotoLibrary.authorizationStatus() == .authorized
         let recordingAuthorized = AVAudioSession.sharedInstance().recordPermission() == .granted
