@@ -14,6 +14,8 @@
 		E05F987B1E17359B00FDFB4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05F98791E17359B00FDFB4E /* LaunchScreen.storyboard */; };
 		E05F98861E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98851E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift */; };
 		E05F98911E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98901E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift */; };
+		E05F989F1E17387F00FDFB4E /* MemoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F989E1E17387F00FDFB4E /* MemoriesViewController.swift */; };
+		E05F98A11E173D0000FDFB4E /* MemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98A01E173D0000FDFB4E /* MemoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		E05F988C1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranscribeVoiceRecordingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05F98901E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribeVoiceRecordingsUITests.swift; sourceTree = "<group>"; };
 		E05F98921E17359B00FDFB4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E05F989E1E17387F00FDFB4E /* MemoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesViewController.swift; sourceTree = "<group>"; };
+		E05F98A01E173D0000FDFB4E /* MemoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				E05F98701E17359B00FDFB4E /* AppDelegate.swift */,
 				E05F98721E17359B00FDFB4E /* ViewController.swift */,
+				E05F989E1E17387F00FDFB4E /* MemoriesViewController.swift */,
+				E05F98A01E173D0000FDFB4E /* MemoryCell.swift */,
 				E05F98741E17359B00FDFB4E /* Main.storyboard */,
 				E05F98771E17359B00FDFB4E /* Assets.xcassets */,
 				E05F98791E17359B00FDFB4E /* LaunchScreen.storyboard */,
@@ -262,6 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05F98A11E173D0000FDFB4E /* MemoryCell.swift in Sources */,
+				E05F989F1E17387F00FDFB4E /* MemoriesViewController.swift in Sources */,
 				E05F98731E17359B00FDFB4E /* ViewController.swift in Sources */,
 				E05F98711E17359B00FDFB4E /* AppDelegate.swift in Sources */,
 			);
