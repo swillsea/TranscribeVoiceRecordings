@@ -57,10 +57,19 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         let thumbnailName = memoryName + ".thumb"
         
         do {
+            
             let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
             if let jpegData = UIImageJPEGRepresentation(image, 80) {
                 try jpegData.write(to: imagePath, options: [.atomicWrite])
             }
+            
+            if let thumbnail = image.resized(toWidth: 200) {
+                let imagePath = getDocumentsDirectory().appendingPathComponent(thumbnailName)
+                if let jpegData = UIImageJPEGRepresentation(thumbnail, 80) {
+                    try jpegData.write(to: imagePath, options: [.atomicWrite])
+                }
+            }
+            
         } catch {
             print("failed to save to disk")
         }
@@ -85,7 +94,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         }
         
         // only reload memories - ignore section[0] (search bar)
-        collectionView?.reloadSections(IndexSet(integer: 0))
+        collectionView?.reloadSections(IndexSet(integer: 1))
     }
 
     func getDocumentsDirectory() -> URL {
@@ -108,5 +117,20 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
                 navigationController?.present(vc, animated: true)
             }
         }
+    }
+}
+
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let scale = width / self.size.width
+        let height = self.size.height * scale
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 0)
+        self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }
