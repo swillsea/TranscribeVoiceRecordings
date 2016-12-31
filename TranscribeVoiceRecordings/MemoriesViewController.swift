@@ -98,7 +98,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
             }
             
         } else if sender.state == .ended {
-            finishRecording(sucess: true)
+            finishRecording(success: true)
         }
     }
     
@@ -152,6 +152,30 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     }
     
     func transcribeAudio(memory: URL) {
+        
+        let recognizer = SFSpeechRecognizer()
+        let request = SFSpeechURLRecognitionRequest(url: audioURL(for: memory))
+        
+        recognizer?.recognitionTask(with: request){ [unowned self] result, error in
+            guard let result = result else {
+                print("there was an error: \(error!)")
+                return
+            }
+            
+            if result.isFinal {
+               self.saveTranscription(result: result, atURL: self.transcriptionURL(for: memory))
+            }
+        }
+    }
+    
+    func saveTranscription(result: SFSpeechRecognitionResult, atURL url: URL) {
+        let text = result.bestTranscription.formattedString
+        
+        do {
+            try text.write(to: url, atomically: true, encoding: .utf8)
+        } catch {
+            print("Failed to save transcription")
+        }
         
     }
     
