@@ -7,13 +7,34 @@
 //
 
 import UIKit
+import AVFoundation
+import Speech
+import Photos
 
 class MemoriesViewController: UICollectionViewController {
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkPermissions()
     }
 
+    func checkPermissions() {
+        let photosAuthorized = PHPhotoLibrary.authorizationStatus() == .authorized
+        let recordingAuthorized = AVAudioSession.sharedInstance().recordPermission() == .granted
+        let transcribeAuthorized = SFSpeechRecognizer.authorizationStatus() == .authorized
+        
+        let fullyAuthorized = photosAuthorized && recordingAuthorized && transcribeAuthorized
+        
+        if !fullyAuthorized {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "FirstRun") {
+                navigationController?.present(vc, animated: true)
+            }
+        }
+    }
 }

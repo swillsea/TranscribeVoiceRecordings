@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
+import Speech
+import Photos
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var decriptionLabel: UILabel!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,51 @@ class ViewController: UIViewController {
     }
 
     @IBAction func requestPermissions(_ sender: Any) {
+        requestPhotoPermission()
+    }
+    
+    func requestPhotoPermission() {
+        PHPhotoLibrary.requestAuthorization { authstatus in
+            DispatchQueue.main.async {
+                self.processPhotoPermissionRequest(status: authstatus)
+            }
+        }
+    }
+    
+    func processPhotoPermissionRequest(status: PHAuthorizationStatus) {
+        if status == .authorized {
+            self.requestRecordPermission()
+        } else {
+            self.decriptionLabel.text = "Photos permission was declined; please enable it in settings then tap Continue again."
+        }
+    }
+    
+    func requestRecordPermission() {
+        AVAudioSession.sharedInstance().requestRecordPermission() { allowed in
+            DispatchQueue.main.async {
+                if allowed {
+                    self.requestTranscribePermissions()
+                } else {
+                    self.decriptionLabel.text = "Recording permission was declined; please enable it in settings then tap Continue again."
+                }
+            }
+        }
+    }
+    
+    func requestTranscribePermissions() {
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            DispatchQueue.main.async {
+                if authStatus == .authorized {
+                    self.authorizationComplete()
+                } else {
+                    self.decriptionLabel.text = "Transcription permission was declined; please enable it in settings then tap Continue again."
+                }
+            }
+        }
+    }
+    
+    func authorizationComplete() {
+        dismiss(animated: true)
     }
 
 }
