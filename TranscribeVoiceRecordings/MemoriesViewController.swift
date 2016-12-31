@@ -10,8 +10,7 @@ import UIKit
 
 class MemoriesViewController: UICollectionViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

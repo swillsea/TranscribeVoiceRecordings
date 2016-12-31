@@ -109,6 +109,9 @@
                                     <constraint firstItem="2jh-Az-Way" firstAttribute="top" secondItem="5YV-Us-MtN" secondAttribute="top" id="dr9-UJ-QIr"/>
                                     <constraint firstAttribute="trailing" secondItem="2jh-Az-Way" secondAttribute="trailing" id="pKk-jR-Vi4"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="2jh-Az-Way" id="9lL-d2-VVZ"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="jJy-yE-vZx">
@@ -141,9 +144,6 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Memories" id="sRx-Fh-kkN"/>
-                    <connections>
-                        <outlet property="imageView" destination="2jh-Az-Way" id="bEw-Dl-b54"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bH4-VZ-Rtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
