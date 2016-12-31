@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E05F98711E17359B00FDFB4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98701E17359B00FDFB4E /* AppDelegate.swift */; };
+		E05F98731E17359B00FDFB4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98721E17359B00FDFB4E /* ViewController.swift */; };
+		E05F98761E17359B00FDFB4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05F98741E17359B00FDFB4E /* Main.storyboard */; };
+		E05F98781E17359B00FDFB4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E05F98771E17359B00FDFB4E /* Assets.xcassets */; };
+		E05F987B1E17359B00FDFB4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05F98791E17359B00FDFB4E /* LaunchScreen.storyboard */; };
+		E05F98861E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98851E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift */; };
+		E05F98911E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98901E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E05F98821E17359B00FDFB4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E05F98651E17359B00FDFB4E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E05F986C1E17359B00FDFB4E;
+			remoteInfo = TranscribeVoiceRecordings;
+		};
+		E05F988D1E17359B00FDFB4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E05F98651E17359B00FDFB4E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E05F986C1E17359B00FDFB4E;
+			remoteInfo = TranscribeVoiceRecordings;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E05F986D1E17359B00FDFB4E /* TranscribeVoiceRecordings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranscribeVoiceRecordings.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E05F98701E17359B00FDFB4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E05F98721E17359B00FDFB4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E05F98751E17359B00FDFB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E05F98771E17359B00FDFB4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E05F987A1E17359B00FDFB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E05F987C1E17359B00FDFB4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E05F98811E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranscribeVoiceRecordingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E05F98851E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribeVoiceRecordingsTests.swift; sourceTree = "<group>"; };
+		E05F98871E17359B00FDFB4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E05F988C1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranscribeVoiceRecordingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E05F98901E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribeVoiceRecordingsUITests.swift; sourceTree = "<group>"; };
+		E05F98921E17359B00FDFB4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E05F986A1E17359B00FDFB4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05F987E1E17359B00FDFB4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05F98891E17359B00FDFB4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E05F98641E17359B00FDFB4E = {
+			isa = PBXGroup;
+			children = (
+				E05F986F1E17359B00FDFB4E /* TranscribeVoiceRecordings */,
+				E05F98841E17359B00FDFB4E /* TranscribeVoiceRecordingsTests */,
+				E05F988F1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests */,
+				E05F986E1E17359B00FDFB4E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E05F986E1E17359B00FDFB4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E05F986D1E17359B00FDFB4E /* TranscribeVoiceRecordings.app */,
+				E05F98811E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.xctest */,
+				E05F988C1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E05F986F1E17359B00FDFB4E /* TranscribeVoiceRecordings */ = {
+			isa = PBXGroup;
+			children = (
+				E05F98701E17359B00FDFB4E /* AppDelegate.swift */,
+				E05F98721E17359B00FDFB4E /* ViewController.swift */,
+				E05F98741E17359B00FDFB4E /* Main.storyboard */,
+				E05F98771E17359B00FDFB4E /* Assets.xcassets */,
+				E05F98791E17359B00FDFB4E /* LaunchScreen.storyboard */,
+				E05F987C1E17359B00FDFB4E /* Info.plist */,
+			);
+			path = TranscribeVoiceRecordings;
+			sourceTree = "<group>";
+		};
+		E05F98841E17359B00FDFB4E /* TranscribeVoiceRecordingsTests */ = {
+			isa = PBXGroup;
+			children = (
+				E05F98851E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift */,
+				E05F98871E17359B00FDFB4E /* Info.plist */,
+			);
+			path = TranscribeVoiceRecordingsTests;
+			sourceTree = "<group>";
+		};
+		E05F988F1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E05F98901E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift */,
+				E05F98921E17359B00FDFB4E /* Info.plist */,
+			);
+			path = TranscribeVoiceRecordingsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E05F986C1E17359B00FDFB4E /* TranscribeVoiceRecordings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E05F98951E17359B00FDFB4E /* Build configuration list for PBXNativeTarget "TranscribeVoiceRecordings" */;
+			buildPhases = (
+				E05F98691E17359B00FDFB4E /* Sources */,
+				E05F986A1E17359B00FDFB4E /* Frameworks */,
+				E05F986B1E17359B00FDFB4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TranscribeVoiceRecordings;
+			productName = TranscribeVoiceRecordings;
+			productReference = E05F986D1E17359B00FDFB4E /* TranscribeVoiceRecordings.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E05F98801E17359B00FDFB4E /* TranscribeVoiceRecordingsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E05F98981E17359B00FDFB4E /* Build configuration list for PBXNativeTarget "TranscribeVoiceRecordingsTests" */;
+			buildPhases = (
+				E05F987D1E17359B00FDFB4E /* Sources */,
+				E05F987E1E17359B00FDFB4E /* Frameworks */,
+				E05F987F1E17359B00FDFB4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E05F98831E17359B00FDFB4E /* PBXTargetDependency */,
+			);
+			name = TranscribeVoiceRecordingsTests;
+			productName = TranscribeVoiceRecordingsTests;
+			productReference = E05F98811E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E05F988B1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E05F989B1E17359B00FDFB4E /* Build configuration list for PBXNativeTarget "TranscribeVoiceRecordingsUITests" */;
+			buildPhases = (
+				E05F98881E17359B00FDFB4E /* Sources */,
+				E05F98891E17359B00FDFB4E /* Frameworks */,
+				E05F988A1E17359B00FDFB4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E05F988E1E17359B00FDFB4E /* PBXTargetDependency */,
+			);
+			name = TranscribeVoiceRecordingsUITests;
+			productName = TranscribeVoiceRecordingsUITests;
+			productReference = E05F988C1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E05F98651E17359B00FDFB4E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Sam Willsea";
+				TargetAttributes = {
+					E05F986C1E17359B00FDFB4E = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = X5EU58X472;
+						ProvisioningStyle = Automatic;
+					};
+					E05F98801E17359B00FDFB4E = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = X5EU58X472;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E05F986C1E17359B00FDFB4E;
+					};
+					E05F988B1E17359B00FDFB4E = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = X5EU58X472;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E05F986C1E17359B00FDFB4E;
+					};
+				};
+			};
+			buildConfigurationList = E05F98681E17359B00FDFB4E /* Build configuration list for PBXProject "TranscribeVoiceRecordings" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E05F98641E17359B00FDFB4E;
+			productRefGroup = E05F986E1E17359B00FDFB4E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E05F986C1E17359B00FDFB4E /* TranscribeVoiceRecordings */,
+				E05F98801E17359B00FDFB4E /* TranscribeVoiceRecordingsTests */,
+				E05F988B1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E05F986B1E17359B00FDFB4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05F987B1E17359B00FDFB4E /* LaunchScreen.storyboard in Resources */,
+				E05F98781E17359B00FDFB4E /* Assets.xcassets in Resources */,
+				E05F98761E17359B00FDFB4E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05F987F1E17359B00FDFB4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05F988A1E17359B00FDFB4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E05F98691E17359B00FDFB4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05F98731E17359B00FDFB4E /* ViewController.swift in Sources */,
+				E05F98711E17359B00FDFB4E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05F987D1E17359B00FDFB4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05F98861E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E05F98881E17359B00FDFB4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E05F98911E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E05F98831E17359B00FDFB4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E05F986C1E17359B00FDFB4E /* TranscribeVoiceRecordings */;
+			targetProxy = E05F98821E17359B00FDFB4E /* PBXContainerItemProxy */;
+		};
+		E05F988E1E17359B00FDFB4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E05F986C1E17359B00FDFB4E /* TranscribeVoiceRecordings */;
+			targetProxy = E05F988D1E17359B00FDFB4E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E05F98741E17359B00FDFB4E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E05F98751E17359B00FDFB4E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E05F98791E17359B00FDFB4E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E05F987A1E17359B00FDFB4E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E05F98931E17359B00FDFB4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E05F98941E17359B00FDFB4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E05F98961E17359B00FDFB4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X5EU58X472;
+				INFOPLIST_FILE = TranscribeVoiceRecordings/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = practicaliOS.TranscribeVoiceRecordings;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E05F98971E17359B00FDFB4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X5EU58X472;
+				INFOPLIST_FILE = TranscribeVoiceRecordings/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = practicaliOS.TranscribeVoiceRecordings;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E05F98991E17359B00FDFB4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = X5EU58X472;
+				INFOPLIST_FILE = TranscribeVoiceRecordingsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = practicaliOS.TranscribeVoiceRecordingsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TranscribeVoiceRecordings.app/TranscribeVoiceRecordings";
+			};
+			name = Debug;
+		};
+		E05F989A1E17359B00FDFB4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = X5EU58X472;
+				INFOPLIST_FILE = TranscribeVoiceRecordingsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = practicaliOS.TranscribeVoiceRecordingsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TranscribeVoiceRecordings.app/TranscribeVoiceRecordings";
+			};
+			name = Release;
+		};
+		E05F989C1E17359B00FDFB4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = X5EU58X472;
+				INFOPLIST_FILE = TranscribeVoiceRecordingsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = practicaliOS.TranscribeVoiceRecordingsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = TranscribeVoiceRecordings;
+			};
+			name = Debug;
+		};
+		E05F989D1E17359B00FDFB4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = X5EU58X472;
+				INFOPLIST_FILE = TranscribeVoiceRecordingsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = practicaliOS.TranscribeVoiceRecordingsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = TranscribeVoiceRecordings;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E05F98681E17359B00FDFB4E /* Build configuration list for PBXProject "TranscribeVoiceRecordings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05F98931E17359B00FDFB4E /* Debug */,
+				E05F98941E17359B00FDFB4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E05F98951E17359B00FDFB4E /* Build configuration list for PBXNativeTarget "TranscribeVoiceRecordings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05F98961E17359B00FDFB4E /* Debug */,
+				E05F98971E17359B00FDFB4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E05F98981E17359B00FDFB4E /* Build configuration list for PBXNativeTarget "TranscribeVoiceRecordingsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05F98991E17359B00FDFB4E /* Debug */,
+				E05F989A1E17359B00FDFB4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E05F989B1E17359B00FDFB4E /* Build configuration list for PBXNativeTarget "TranscribeVoiceRecordingsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05F989C1E17359B00FDFB4E /* Debug */,
+				E05F989D1E17359B00FDFB4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E05F98651E17359B00FDFB4E /* Project object */;
+}
