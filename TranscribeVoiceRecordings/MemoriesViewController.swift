@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 import Speech
 import Photos
+import CoreSpotlight
+import MobileCoreServices
 
 class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, AVAudioRecorderDelegate {
     
@@ -191,21 +193,47 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
             }
             
             if result.isFinal {
-               self.saveTranscription(result: result, atURL: self.transcriptionURL(for: memory))
+               self.saveTranscription(result: result, forMemory: memory)
             }
         }
     }
     
-    func saveTranscription(result: SFSpeechRecognitionResult, atURL url: URL) {
+    func saveTranscription(result: SFSpeechRecognitionResult, forMemory memory: URL) {
         let text = result.bestTranscription.formattedString
+        let url =  self.transcriptionURL(for: memory)
         
         do {
             try text.write(to: url, atomically: true, encoding: .utf8)
+            self.indexForSearch(memory: memory, text: text)
         } catch {
             print("Failed to save transcription")
         }
         
     }
+    
+    // Core Spotlight
+    func indexForSearch(memory: URL, text: String) {
+        
+        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        attributeSet.title = "_ App Memory"
+        attributeSet.contentDescription = text
+        attributeSet.thumbnailURL = thumbnailURL(for: memory)
+        
+        let searchableItem = CSSearchableItem(uniqueIdentifier: memory.path, domainIdentifier: "com.ThisApp", attributeSet: attributeSet)
+        
+        searchableItem.expirationDate = Date.distantFuture
+        
+        CSSearchableIndex.default().indexSearchableItems([searchableItem]) { error in
+            if let error = error {
+                print("Indexing error: \(error.localizedDescription)")
+            } else {
+                print("Indexing succeeded")
+            }
+        }
+        
+    }
+    
+    
     
     
     // Image handling
