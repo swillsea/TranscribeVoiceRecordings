@@ -88,23 +88,30 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let memory = memories[indexPath.row]
-        
+        playAudio(forMemory: memory)
+    }
+    
+    //Audio Playback
+    func playAudio(forMemory memory: URL) {
         do {
             let audioName = audioURL(for: memory)
             if FileManager.default.fileExists(atPath: audioName.path) {
                 audioPlayer = try AVAudioPlayer(contentsOf: audioName)
                 audioPlayer?.play()
             }
-            let transcriptionName = transcriptionURL(for: memory)
-            if FileManager.default.fileExists(atPath: transcriptionName.path) {
-                let contents = try String(contentsOf: transcriptionName)
-                print(contents)
-            }
+            try printTranscription(forMemory: memory)
         } catch {
             print("Error loading audio")
         }
     }
     
+    func printTranscription(forMemory memory: URL) throws {
+        let transcriptionName = transcriptionURL(for: memory)
+        if FileManager.default.fileExists(atPath: transcriptionName.path) {
+            let contents = try String(contentsOf: transcriptionName)
+            print(contents)
+        }
+    }
     
     
     // Memory Recording
@@ -199,10 +206,6 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         }
         
     }
-    
-    
-    //Audio Playback
-    
     
     
     // Image handling
