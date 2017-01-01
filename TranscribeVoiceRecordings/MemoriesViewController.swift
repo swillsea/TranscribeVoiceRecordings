@@ -19,6 +19,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     var audioRecorder: AVAudioRecorder?
     var recordingURL: URL!
     
+    var audioPlayer: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +86,25 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         return section == 1 ? CGSize.zero : CGSize(width: 0, height: 50)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let memory = memories[indexPath.row]
+        
+        do {
+            let audioName = audioURL(for: memory)
+            if FileManager.default.fileExists(atPath: audioName.path) {
+                audioPlayer = try AVAudioPlayer(contentsOf: audioName)
+                audioPlayer?.play()
+            }
+            let transcriptionName = transcriptionURL(for: memory)
+            if FileManager.default.fileExists(atPath: transcriptionName.path) {
+                let contents = try String(contentsOf: transcriptionName)
+                print(contents)
+            }
+        } catch {
+            print("Error loading audio")
+        }
+    }
+    
     
     
     // Memory Recording
@@ -104,6 +124,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     
     func beginRecording() {
         collectionView?.backgroundColor = .red
+        audioPlayer?.stop()
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
@@ -180,6 +201,9 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     }
     
     
+    //Audio Playback
+    
+    
     
     // Image handling
     func addImage() {
@@ -221,7 +245,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
             }
             
         } catch {
-            print("failed to save to disk")
+            print("Failed to save to disk")
         }
     }
     
