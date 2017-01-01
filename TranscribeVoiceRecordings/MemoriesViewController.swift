@@ -13,10 +13,13 @@ import Photos
 import CoreSpotlight
 import MobileCoreServices
 
-class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, AVAudioRecorderDelegate {
+class MemoriesViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, AVAudioRecorderDelegate, UISearchBarDelegate {
     
-    var memories = [URL]()
+    var allMemories = [URL]()
+    var filteredMemories = [URL]()
     var activeMemory: URL!
+    
+    var searchQuery: CSSearchQuery?
     
     var audioRecorder: AVAudioRecorder?
     var recordingURL: URL!
@@ -51,7 +54,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         case 0:
             return 0
         default:
-            return memories.count
+            return filteredMemories.count
         }
     }
     
@@ -68,7 +71,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     }
     
     func setImage(forCell cell: MemoryCell, at indexPath: IndexPath) {
-        let memory = memories[indexPath.row]
+        let memory = filteredMemories[indexPath.row]
         let imageName = thumbnailURL(for: memory).path
         let image = UIImage(contentsOfFile: imageName)
         cell.imageView.image = image
@@ -89,7 +92,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let memory = memories[indexPath.row]
+        let memory = filteredMemories[indexPath.row]
         playAudio(forMemory: memory)
     }
     
@@ -122,7 +125,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         if sender.state == .began {
             let cell = sender.view as! MemoryCell
             if let index = collectionView?.indexPath(for: cell) {
-                activeMemory = memories[index.row]
+                activeMemory = filteredMemories[index.row]
                 beginRecording()
             }
             
@@ -233,8 +236,53 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         
     }
     
+    // In-App searching
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterMemories(text: searchText)
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
     
+    func filterMemories(text: String) {
+        
+        guard text.characters.count > 0 else {
+            filteredMemories = allMemories
+            UIView.performWithoutAnimation {
+                collectionView?.reloadSections(IndexSet(integer: 1))
+            }
+            return
+        }
+        
+        var allMatchingItems = [CSSearchableItem]()
+        
+        searchQuery?.cancel() // If the user keeps typing, we cancel the last search before researching
+        
+        // *\(text)* means any content, then the search text then any content. The c means case insensitive
+        let queryString = "contentDescription == \"*\(text)*\"c"
+        searchQuery = CSSearchQuery(queryString: queryString, attributes: nil)
+        
+        searchQuery?.foundItemsHandler = { items in
+            allMatchingItems.append(contentsOf: items)
+        }
+        
+        searchQuery?.completionHandler = { error in
+            DispatchQueue.main.async { [unowned self] in
+                self.activateFilter(forMatches: allMatchingItems)
+            }
+        }
+    }
+    
+    func activateFilter(forMatches matches: [CSSearchableItem]) {
+        filteredMemories = matches.map { item in
+            return URL(fileURLWithPath: item.uniqueIdentifier)
+        }
+        
+        UIView.performWithoutAnimation {
+            collectionView?.reloadSections(IndexSet(integer: 1))
+        }
+    }
     
     // Image handling
     func addImage() {
@@ -281,7 +329,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
     }
     
     func loadMemories() {
-        memories.removeAll()
+        allMemories.removeAll()
         
         // attempt loading all memories
         guard let files = try? FileManager.default.contentsOfDirectory(at: getDocumentsDirectory(), includingPropertiesForKeys: nil, options: []) else {
@@ -294,10 +342,11 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
             if filename.hasSuffix(".thumb") {
                 let rootPath = filename.replacingOccurrences(of: ".thumb", with: "")
                 let memoryPath = getDocumentsDirectory().appendingPathComponent(rootPath)
-                memories.append(memoryPath)
+                allMemories.append(memoryPath)
             }
         }
         
+        filteredMemories = allMemories
         // only reload memories - ignore section[0] (search bar)
         collectionView?.reloadSections(IndexSet(integer: 1))
     }
