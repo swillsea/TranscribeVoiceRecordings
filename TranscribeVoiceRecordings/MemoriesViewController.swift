@@ -30,7 +30,7 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         super.viewDidLoad()
         loadMemories()
         setupNavBar()
-        recordingURL = getDocumentsDirectory().appendingPathExtension("recording.m4a")
+        recordingURL = getDocumentsDirectory().appendingPathComponent("recording.m4a")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -171,7 +171,8 @@ class MemoriesViewController: UICollectionViewController, UIImagePickerControlle
         
         do {
             let memoryAudioURL = activeMemory.appendingPathExtension("m4a")
-            
+            print(memoryAudioURL)
+
             if FileManager.default.fileExists(atPath: memoryAudioURL.path) {
                 try FileManager.default.removeItem(at: memoryAudioURL)
             }
