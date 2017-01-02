@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		E05F98711E17359B00FDFB4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98701E17359B00FDFB4E /* AppDelegate.swift */; };
-		E05F98731E17359B00FDFB4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98721E17359B00FDFB4E /* ViewController.swift */; };
+		E05F98731E17359B00FDFB4E /* PermissionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98721E17359B00FDFB4E /* PermissionsVC.swift */; };
 		E05F98761E17359B00FDFB4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05F98741E17359B00FDFB4E /* Main.storyboard */; };
 		E05F98781E17359B00FDFB4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E05F98771E17359B00FDFB4E /* Assets.xcassets */; };
 		E05F987B1E17359B00FDFB4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05F98791E17359B00FDFB4E /* LaunchScreen.storyboard */; };
 		E05F98861E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98851E17359B00FDFB4E /* TranscribeVoiceRecordingsTests.swift */; };
 		E05F98911E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98901E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift */; };
-		E05F989F1E17387F00FDFB4E /* MemoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F989E1E17387F00FDFB4E /* MemoriesViewController.swift */; };
+		E05F989F1E17387F00FDFB4E /* MemoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F989E1E17387F00FDFB4E /* MemoriesVC.swift */; };
 		E05F98A11E173D0000FDFB4E /* MemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98A01E173D0000FDFB4E /* MemoryCell.swift */; };
+		E05F98A31E1A428E00FDFB4E /* RecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98A21E1A428E00FDFB4E /* RecordingManager.swift */; };
+		E05F98A51E1A44B600FDFB4E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98A41E1A44B600FDFB4E /* UIImage+Extensions.swift */; };
+		E05F98A71E1A454300FDFB4E /* TempGlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98A61E1A454300FDFB4E /* TempGlobalHelpers.swift */; };
+		E05F98A91E1A459E00FDFB4E /* SpotlightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05F98A81E1A459E00FDFB4E /* SpotlightManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 /* Begin PBXFileReference section */
 		E05F986D1E17359B00FDFB4E /* TranscribeVoiceRecordings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranscribeVoiceRecordings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05F98701E17359B00FDFB4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E05F98721E17359B00FDFB4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E05F98721E17359B00FDFB4E /* PermissionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsVC.swift; sourceTree = "<group>"; };
 		E05F98751E17359B00FDFB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E05F98771E17359B00FDFB4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E05F987A1E17359B00FDFB4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,8 +53,12 @@
 		E05F988C1E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranscribeVoiceRecordingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05F98901E17359B00FDFB4E /* TranscribeVoiceRecordingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribeVoiceRecordingsUITests.swift; sourceTree = "<group>"; };
 		E05F98921E17359B00FDFB4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E05F989E1E17387F00FDFB4E /* MemoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesViewController.swift; sourceTree = "<group>"; };
+		E05F989E1E17387F00FDFB4E /* MemoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesVC.swift; sourceTree = "<group>"; };
 		E05F98A01E173D0000FDFB4E /* MemoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCell.swift; sourceTree = "<group>"; };
+		E05F98A21E1A428E00FDFB4E /* RecordingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingManager.swift; sourceTree = "<group>"; };
+		E05F98A41E1A44B600FDFB4E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		E05F98A61E1A454300FDFB4E /* TempGlobalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempGlobalHelpers.swift; sourceTree = "<group>"; };
+		E05F98A81E1A459E00FDFB4E /* SpotlightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +110,11 @@
 			isa = PBXGroup;
 			children = (
 				E05F98701E17359B00FDFB4E /* AppDelegate.swift */,
-				E05F98721E17359B00FDFB4E /* ViewController.swift */,
-				E05F989E1E17387F00FDFB4E /* MemoriesViewController.swift */,
-				E05F98A01E173D0000FDFB4E /* MemoryCell.swift */,
-				E05F98741E17359B00FDFB4E /* Main.storyboard */,
-				E05F98771E17359B00FDFB4E /* Assets.xcassets */,
-				E05F98791E17359B00FDFB4E /* LaunchScreen.storyboard */,
-				E05F987C1E17359B00FDFB4E /* Info.plist */,
+				E05F98AA1E1A49A000FDFB4E /* Helpers */,
+				E05F98AB1E1A49A600FDFB4E /* Model */,
+				E05F98AD1E1A49D200FDFB4E /* VCs */,
+				E05F98AC1E1A49BF00FDFB4E /* Views */,
+				E05F98AE1E1A49F400FDFB4E /* Resources */,
 			);
 			path = TranscribeVoiceRecordings;
 			sourceTree = "<group>";
@@ -129,6 +135,52 @@
 				E05F98921E17359B00FDFB4E /* Info.plist */,
 			);
 			path = TranscribeVoiceRecordingsUITests;
+			sourceTree = "<group>";
+		};
+		E05F98AA1E1A49A000FDFB4E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E05F98A41E1A44B600FDFB4E /* UIImage+Extensions.swift */,
+				E05F98A61E1A454300FDFB4E /* TempGlobalHelpers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		E05F98AB1E1A49A600FDFB4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E05F98A21E1A428E00FDFB4E /* RecordingManager.swift */,
+				E05F98A81E1A459E00FDFB4E /* SpotlightManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E05F98AC1E1A49BF00FDFB4E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E05F98A01E173D0000FDFB4E /* MemoryCell.swift */,
+				E05F98741E17359B00FDFB4E /* Main.storyboard */,
+				E05F98791E17359B00FDFB4E /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E05F98AD1E1A49D200FDFB4E /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				E05F98721E17359B00FDFB4E /* PermissionsVC.swift */,
+				E05F989E1E17387F00FDFB4E /* MemoriesVC.swift */,
+			);
+			name = VCs;
+			sourceTree = "<group>";
+		};
+		E05F98AE1E1A49F400FDFB4E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E05F98771E17359B00FDFB4E /* Assets.xcassets */,
+				E05F987C1E17359B00FDFB4E /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,9 +320,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05F98A71E1A454300FDFB4E /* TempGlobalHelpers.swift in Sources */,
 				E05F98A11E173D0000FDFB4E /* MemoryCell.swift in Sources */,
-				E05F989F1E17387F00FDFB4E /* MemoriesViewController.swift in Sources */,
-				E05F98731E17359B00FDFB4E /* ViewController.swift in Sources */,
+				E05F98A91E1A459E00FDFB4E /* SpotlightManager.swift in Sources */,
+				E05F989F1E17387F00FDFB4E /* MemoriesVC.swift in Sources */,
+				E05F98731E17359B00FDFB4E /* PermissionsVC.swift in Sources */,
+				E05F98A51E1A44B600FDFB4E /* UIImage+Extensions.swift in Sources */,
+				E05F98A31E1A428E00FDFB4E /* RecordingManager.swift in Sources */,
 				E05F98711E17359B00FDFB4E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +578,7 @@
 				E05F98971E17359B00FDFB4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E05F98981E17359B00FDFB4E /* Build configuration list for PBXNativeTarget "TranscribeVoiceRecordingsTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +587,7 @@
 				E05F989A1E17359B00FDFB4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E05F989B1E17359B00FDFB4E /* Build configuration list for PBXNativeTarget "TranscribeVoiceRecordingsUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +596,7 @@
 				E05F989D1E17359B00FDFB4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
